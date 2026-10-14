@@ -4,6 +4,8 @@ Este repositorio recoge el método que he construido para hacer migraciones de d
 
 Las primeras migraciones las hice a mano, de principio a fin (una de ellas está documentada en [migracion-datos-clinica-sqlserver-mysql](https://github.com/Giusebuompane/migracion-datos-clinica-sqlserver-mysql)). Cada una me enseñaba algo nuevo: un sistema de origen con sus trampas, un bug que no había visto o una regla de negocio que no estaba escrita en ningún sitio. A partir de esa experiencia convertí lo aprendido en documentación, prompts, skills y comprobaciones automáticas. Ahora un agente de IA sigue ese mismo método en cada migración nueva y yo me centro en revisar, decidir y validar.
 
+Este proceso de automatización lo diseñé y lo construí yo, y hoy no lo uso solo yo: mis compañeros del equipo de migraciones arrancan sus propias sesiones con los mismos prompts y la misma documentación, y cada migración que cierra cualquiera del equipo deja el conocimiento actualizado para la siguiente.
+
 En el repositorio no hay datos de clientes ni código interno de la empresa: las plantillas, los prompts, la skill y el validador son versiones genéricas que he reescrito a partir de mi trabajo real.
 
 ## La idea
@@ -87,7 +89,7 @@ El protocolo real tiene 29 reglas; en `plantillas/capa0_protocolo.md` hay una se
 - **Subagentes con medida.** Para documentar de golpe 16 migraciones antiguas lancé varios agentes en paralelo y agoté el límite de uso de la sesión. Un solo agente trabajando de forma secuencial lo terminó sin problemas. Ahora reparto en paralelo solo lo que de verdad es independiente y ligero.
 - **Confirmación antes de cada acción irreversible.** Los resets y las cargas masivas contra producción se ejecutan de una en una, con backup previo y mi confirmación explícita justo antes de cada una.
 - **Lo que se puede comprobar con código no se deja a la memoria.** Los bugs que se repetían entre clientes acabaron en un validador automático que el agente ejecuta solo antes de cada carga.
-- **El trabajo es de equipo.** Los prompts y la documentación los usan también mis compañeros en sus propias sesiones, y cada migración que se cierra deja actualizadas las 4 capas para la siguiente persona.
+- **Pensado para el equipo, no solo para mí.** Escribí los prompts y la documentación para que cualquier compañero pudiera arrancar una migración sin depender de mí, y añadí una guía de los pasos que hace la persona (antes de abrir el agente, entre fases y al cerrar). Cada migración que se cierra deja actualizadas las 4 capas para la siguiente persona.
 
 ## Herramientas
 

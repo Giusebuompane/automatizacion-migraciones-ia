@@ -6,6 +6,8 @@ Las primeras migraciones las hice a mano, de principio a fin (una de ellas está
 
 Este proceso de automatización lo diseñé y lo construí yo, y hoy no lo uso solo yo: mis compañeros del equipo de migraciones arrancan sus propias sesiones con los mismos prompts y la misma documentación, y cada migración que cierra cualquiera del equipo deja el conocimiento actualizado para la siguiente.
 
+El resultado es que cada migración se hace en bastante menos tiempo y que cualquier compañero puede retomar una migración empezada por otro sin perder contexto, porque todo lo que se sabe del cliente y del sistema de origen está escrito y el agente lo lee antes de empezar. No doy una cifra exacta de ahorro porque depende mucho de lo complicada que sea cada migración.
+
 En el repositorio no hay datos de clientes ni código interno de la empresa: las plantillas, los prompts, la skill y el validador son versiones genéricas que he reescrito a partir de mi trabajo real.
 
 ## La idea
